@@ -1,0 +1,83 @@
+---
+import { site } from '../data/site';
+---
+<footer id="contact" class="site-footer rule-top">
+  <div class="wrap cols">
+    <div>
+      <p class="eyebrow">Get in touch</p>
+      <h3>Feedback is welcome</h3>
+      <p class="muted">
+        Reach the show directly, or use the form. In the flesh? Come find us at
+        <a href="/the-hideaway">The Hideaway</a>.
+      </p>
+      <ul class="emails">
+        {site.emails.map((e) => <li><a href={`mailto:${e}`}>{e}</a></li>)}
+      </ul>
+    </div>
+
+    <div>
+      <!--
+        Static hosting has no server, so this form posts to Web3Forms (free,
+        no backend). 1) Get an access key at https://web3forms.com
+        2) Replace YOUR_ACCESS_KEY below. Submissions arrive by email.
+        Prefer zero third parties? Delete this <form> — the emails above suffice.
+      -->
+      <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+        <label>Name<input type="text" name="name" required /></label>
+        <label>Email<input type="email" name="email" required /></label>
+        <label>Message<textarea name="message" rows="4" required></textarea></label>
+        <button type="submit" class="btn">Send message</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="wrap sub">
+    <p>© {new Date().getFullYear()} {site.name} · On the air since 1993 · Amsterdam</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { padding-block: clamp(3rem, 7vw, 5rem) 2rem; background: var(--ink-2); }
+  .cols {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) { .cols { grid-template-columns: 1fr 1fr; } }
+  .muted { color: var(--cream-dim); }
+  .emails { list-style: none; padding: 0; margin: 1rem 0 0; }
+  .emails li { margin-bottom: 0.3rem; }
+  .contact-form { display: grid; gap: 0.9rem; max-width: 30rem; }
+  .contact-form label {
+    display: grid;
+    gap: 0.35rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font: inherit;
+    color: var(--cream);
+    background: var(--ink);
+    border: 1px solid var(--ink-3);
+    border-radius: 3px;
+    padding: 0.6rem 0.7rem;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 1px;
+  }
+  .sub {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    color: var(--cream-dim);
+    font-size: 0.85rem;
+  }
+</style>

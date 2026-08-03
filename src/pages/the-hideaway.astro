@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import HideawayDates from '../components/HideawayDates.astro';
+import { hideaway } from '../data/hideaway';
+---
+<Base title="The Hideaway" description="The Hideaway — a bi-monthly sweet soul party in Amsterdam.">
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">{hideaway.seasonLabel} · Season {hideaway.season}</p>
+      <h1>The Hideaway</h1>
+      <p class="lede">{hideaway.format}</p>
+
+      <div class="facts">
+        <div><span class="k">Where</span>{hideaway.venue.room}, {hideaway.venue.building}<br />{hideaway.venue.address}</div>
+        <div><span class="k">When</span>{hideaway.time}</div>
+        <div><span class="k">Entry</span>{hideaway.entry}</div>
+        <div><span class="k">Residents</span>{hideaway.residents.join(' · ')}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rule-top">
+    <div class="wrap narrow">
+      <p class="eyebrow">Dates</p>
+      <h2>Season {hideaway.season}</h2>
+      <HideawayDates />
+      <p class="muted note">
+        Guest DJs are announced ahead of each night. Boxes full of top-drawer
+        sweet soul? <a href="/#contact">Drop us a line</a> to join the line-up.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .facts {
+    display: grid;
+    gap: 1.5rem 2.5rem;
+    grid-template-columns: 1fr;
+    margin-top: 2.5rem;
+    max-width: 640px;
+  }
+  @media (min-width: 620px) { .facts { grid-template-columns: 1fr 1fr; } }
+  .k {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.35rem;
+  }
+  .narrow { max-width: 720px; }
+  .note { margin-top: 1.8rem; }
+  .muted { color: var(--cream-dim); }
+</style>

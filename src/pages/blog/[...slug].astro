@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', (p) => !p.data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base title={post.data.title} description={post.data.excerpt}>
+  <section>
+    <article class="wrap post">
+      <p class="eyebrow">{post.data.category}</p>
+      <h1>{post.data.title}</h1>
+      <time datetime={post.data.date.toISOString()}>{fmt(post.data.date)}</time>
+      {post.data.image && <img src={post.data.image} alt="" class="lead-img" />}
+      <div class="body"><Content /></div>
+      <p class="back"><a href="/blog">← All posts</a></p>
+    </article>
+  </section>
+</Base>
+
+<style>
+  .post { max-width: 720px; }
+  time { color: var(--cream-dim); font-size: 0.9rem; }
+  .lead-img { width: 100%; border-radius: 4px; margin: 1.8rem 0; border: 1px solid var(--rule); }
+  .body { margin-top: 1.8rem; }
+  .body :global(h2) { margin-top: 2rem; }
+  .body :global(img) { max-width: 100%; border-radius: 4px; }
+  .back { margin-top: 3rem; }
+</style>

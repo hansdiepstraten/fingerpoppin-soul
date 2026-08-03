@@ -1,0 +1,19 @@
+# Cloudflare redirects — map old Weebly URLs to the new structure.
+# Existing /blog/<slug> URLs are preserved, so shared post links keep working.
+# Format: <from>  <to>  <status>
+
+/about.html                              /about              301
+/our-philosophy.html                     /about              301
+/our-history.html                        /about              301
+/artists-we-met.html                     /artists-we-met     301
+/rare-soul-lps.html                      /selections         301
+/hattricks-full-of-soul-i.html           /selections         301
+/hattricks-full-of-soul-ii.html          /selections         301
+/hattricks-full-of-soul-iii.html         /selections         301
+/hattricks-full-of-soul-iv.html          /selections         301
+/hattricks-full-of-soul-v.html           /selections         301
+/mixcloud-shows.html                     /listen             301
+/spotify-playlists.html                  /listen             301
+/soundcloud-google-and-youtube.html      /listen             301
+/contact.html                            /#contact           301
+/blog.html                               /blog               301

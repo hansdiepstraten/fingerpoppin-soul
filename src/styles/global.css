@@ -1,0 +1,133 @@
+/* ============================================================
+   Fingerpoppin Soul — design tokens
+   Direction: the label of a 45. Espresso ink, 45-label gold,
+   warm cream page. Boldness spent on the record-label hero; the
+   rest quiet and disciplined.
+   ============================================================ */
+:root {
+  --ink:       #FAF4E7;  /* warm cream — page background      */
+  --ink-2:     #F1E7D2;  /* raised panels                     */
+  --ink-3:     #E4D3AF;  /* hover / borders on panels         */
+  --cream:     #241A12;  /* primary text — espresso           */
+  --cream-dim: #6B5A44;  /* secondary text                    */
+  --gold:      #B8801C;  /* 45-label gold — accent (deepened for contrast on cream) */
+  --gold-deep: #8C6315;  /* pressed / visited                 */
+  --rule:      rgba(36, 26, 18, 0.14);
+  --on-gold:   #1C140F;  /* fixed dark ink for text/graphics on gold surfaces */
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Archivo Variable', system-ui, sans-serif;
+
+  --measure: 68ch;
+  --wrap: 1080px;
+  --gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap { width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.4em;
+}
+h1 { font-size: clamp(2.4rem, 1.6rem + 3.6vw, 4.4rem); }
+h2 { font-size: clamp(1.8rem, 1.3rem + 2vw, 2.8rem); }
+h3 { font-size: clamp(1.2rem, 1rem + 0.8vw, 1.5rem); }
+
+p { max-width: var(--measure); }
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--cream); }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Eyebrow — small caps label in the utility face. Encodes section, not decoration. */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.eyebrow::before {
+  content: '';
+  width: 1.4rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+section { padding-block: clamp(3rem, 8vw, 6rem); }
+.rule-top { border-top: 1px solid var(--rule); }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 1.4rem;
+  border-radius: 2px;
+  border: 1px solid var(--gold);
+  color: var(--on-gold);
+  background: var(--gold);
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.btn:hover { background: transparent; color: var(--gold); }
+.btn-ghost { background: transparent; color: var(--gold); }
+.btn-ghost:hover { background: var(--gold); color: var(--on-gold); }
+
+/* Card grid */
+.grid { display: grid; gap: var(--gap); }
+.card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+.card h3 { color: var(--cream); }
+
+/* Responsive embeds (16:9) */
+.embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.embed.embed-tall { aspect-ratio: 4 / 5; }
+.embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.lede { font-size: 1.2rem; color: var(--cream-dim); max-width: var(--measure); }

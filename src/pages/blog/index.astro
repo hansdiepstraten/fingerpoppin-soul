@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog', (p) => !p.data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base title="Blog" description="News from the show and The Hideaway — by Hans & Harry.">
+  <section>
+    <div class="wrap narrow">
+      <p class="eyebrow">By Hans &amp; Harry</p>
+      <h1>Blog</h1>
+      <ul class="posts">
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}`}>
+              <span class="cat">{post.data.category}</span>
+              <h2>{post.data.title}</h2>
+              <time datetime={post.data.date.toISOString()}>{fmt(post.data.date)}</time>
+              {post.data.excerpt && <p class="muted">{post.data.excerpt}</p>}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .narrow { max-width: 760px; }
+  .posts { list-style: none; margin: 2rem 0 0; padding: 0; }
+  .posts li { border-top: 1px solid var(--rule); }
+  .posts a { display: block; color: inherit; padding: 1.6rem 0; }
+  .posts a:hover h2 { color: var(--gold); }
+  .cat {
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .posts h2 { margin: 0.4rem 0 0.3rem; }
+  time { color: var(--cream-dim); font-size: 0.85rem; }
+  .muted { color: var(--cream-dim); margin-top: 0.6rem; }
+</style>

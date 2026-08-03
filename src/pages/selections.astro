@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import { selections } from '../data/selections';
+---
+<Base title="Selections" description="Rare soul LPs and the Hattricks full of Soul series.">
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">From the crates</p>
+      <h1>Selections</h1>
+      <p class="lede">
+        Rare soul long-players and the <em>Hattricks full of Soul</em> series —
+        deep cuts and three-in-a-row sets from the collection.
+      </p>
+      {selections.map((s) => (
+        <article class="set">
+          <h2>{s.title}</h2>
+          <p class="muted">{s.blurb}</p>
+
+          {s.records && (
+            <div class="grid records">
+              {s.records.map((r) => (
+                <div class="record">
+                  {r.image && <img src={r.image} alt={r.title} loading="lazy" />}
+                  <h3>{r.title}</h3>
+                  <p class="muted">{r.blurb}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {s.cover && <img src={s.cover} alt="" class="cover" loading="lazy" />}
+
+          {s.sets && (
+            <div class="hattricks">
+              {s.sets.map((set) => (
+                <div class="hattrick">
+                  {set.map((src) => <img src={src} alt="" loading="lazy" />)}
+                </div>
+              ))}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .set { margin-top: clamp(2.5rem, 5vw, 4rem); padding-top: 2.5rem; border-top: 1px solid var(--rule); }
+  .set:first-of-type { border-top: none; }
+  .muted { color: var(--cream-dim); }
+  .records {
+    grid-template-columns: 1fr;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 620px) { .records { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 940px) { .records { grid-template-columns: 1fr 1fr 1fr; } }
+  .record img { width: 100%; height: auto; border-radius: 3px; display: block; margin-bottom: 0.75rem; }
+  .record h3 { font-size: 1.05rem; margin: 0 0 0.4rem; }
+  .record p { font-size: 0.92rem; }
+  .cover { width: 100%; max-width: 260px; height: auto; border-radius: 3px; display: block; margin-top: 1.5rem; }
+  /* Each .hattrick is one themed trio of singles — always shown as a group of
+     3, never split across rows, so the "hattrick" reads as one unit. */
+  .hattricks {
+    display: grid;
+    gap: 1.2rem 0.8rem;
+    grid-template-columns: 1fr;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 640px) { .hattricks { grid-template-columns: 1fr 1fr; } }
+  .hattrick {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+    padding: 0.5rem;
+    background: var(--ink-2);
+    border-radius: 4px;
+  }
+  .hattrick img { width: 100%; height: auto; border-radius: 2px; display: block; }
+</style>

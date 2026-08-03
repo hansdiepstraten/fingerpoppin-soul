@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import MixcloudEmbed from '../components/MixcloudEmbed.astro';
+import { hideaway } from '../data/hideaway';
+---
+<Base>
+  <!-- HERO: the record is the thesis -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Soul radio · Amsterdam · since 1993</p>
+        <h1>The best in soul, delivered from Amsterdam.</h1>
+        <p class="lede">
+          Hans Diepstraten &amp; Harry van Vliet have spun sweet soul, ballads and
+          rare grooves on Amsterdam's airwaves every Thursday for over thirty
+          years.
+        </p>
+        <div class="cta-row">
+          <a href="/listen" class="btn">Listen to the show</a>
+          <a href="/blog" class="btn-ghost btn">Latest from the show</a>
+        </div>
+      </div>
+      <div class="hero-record">
+        <img src="/images/amsterdam-canal.jpg" alt="Amsterdam canal" class="canal-photo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest on the air -->
+  <section class="rule-top">
+    <div class="wrap">
+      <p class="eyebrow">On the air</p>
+      <h2>Latest shows</h2>
+      <p class="lede">Every week's show, streamed and archived on Mixcloud.</p>
+      <div class="mix"><MixcloudEmbed /></div>
+    </div>
+  </section>
+
+  <!-- The Hideaway: a side project, kept low-key on the homepage -->
+  <section class="rule-top">
+    <div class="wrap hideaway-mention">
+      <p class="eyebrow">Also from Hans &amp; Harry · roughly every two months</p>
+      <p class="lede">
+        <strong>The Hideaway</strong> — a vinyl-only soul night at
+        {hideaway.venue.building}. <a href="/the-hideaway">Season {hideaway.season} dates &amp; guests →</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-block: clamp(2.5rem, 7vw, 5.5rem); }
+  .hero-grid {
+    display: grid;
+    gap: var(--gap);
+    align-items: center;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 860px) {
+    .hero-grid { grid-template-columns: 1.15fr 0.85fr; }
+  }
+  .hero-record { display: flex; justify-content: center; }
+  .canal-photo {
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.8rem; }
+  .mix { max-width: 640px; margin-top: 1.5rem; }
+  .hideaway-mention { max-width: 640px; }
+</style>

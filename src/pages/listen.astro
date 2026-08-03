@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import MixcloudEmbed from '../components/MixcloudEmbed.astro';
+import { site } from '../data/site';
+---
+<Base title="Listen" description="Fingerpoppin Soul — shows, playlists and the 24/7 stream.">
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">On the air</p>
+      <h1>Listen</h1>
+      <p class="lede">
+        The weekly two-hour show airs Thursdays 21:00–23:00 CET on FM 106.8 and
+        Cable 103.3, and streams 24/7. Every show is archived on Mixcloud.
+      </p>
+    </div>
+  </section>
+
+  <section class="rule-top">
+    <div class="wrap narrow">
+      <p class="eyebrow">Mixcloud</p>
+      <h2>The archive</h2>
+      <MixcloudEmbed />
+      <p><a class="btn btn-ghost" href={site.mixcloud}>Open Mixcloud</a></p>
+    </div>
+  </section>
+
+
+</Base>
+
+<style>
+  .muted { color: var(--cream-dim); }
+</style>

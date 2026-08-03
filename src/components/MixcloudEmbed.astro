@@ -1,0 +1,16 @@
+---
+// Mixcloud player. Pass a feed path, e.g. "/fingerpoppinsoul/".
+interface Props { feed?: string; }
+const { feed = '/fingerpoppinsoulsoulradiofroma/' } = Astro.props;
+const src = `https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=${encodeURIComponent(feed)}`;
+---
+<div class="embed embed-tall embed-plain">
+  <iframe src={src} loading="lazy" allow="encrypted-media" title="Fingerpoppin Soul on Mixcloud"></iframe>
+</div>
+
+<style>
+  /* Mixcloud's widget renders its own white/light chrome (no way to
+     recolor it to match the page), so drop our border and background
+     here rather than framing it like a card. */
+  .embed-plain { background: none; border: none; border-radius: 0; }
+</style>
