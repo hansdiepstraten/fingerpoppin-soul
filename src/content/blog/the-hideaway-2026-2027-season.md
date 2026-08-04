@@ -1,9 +1,9 @@
 ---
-title: "New season of The Hideaway — 2026/27"
+title: New season of The Hideaway — 2026/27
 date: 2026-08-20
 category: Hideaway
-excerpt: "Our fifth season kicks off in October at the Marquee Room. Six Saturdays of sweet soul, ballads and B-sides."
-# image: "/images/hideaway.jpg"
+image: /images/WhatsApp Image 2026-07-22 at 14.30.49.jpeg
+excerpt: Our fifth season kicks off in October at the Marquee Room. Six Saturdays of sweet soul, ballads and B-sides.
 ---
 
 Our fifth season of The Hideaway starts this October in the **Marquee Room**
