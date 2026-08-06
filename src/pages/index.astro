@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 import MixcloudEmbed from '../components/MixcloudEmbed.astro';
 import { hideaway } from '../data/hideaway';
+import { Image } from 'astro:assets';
+import showFoto from '../assets/fingerpoppintime.png';
 ---
 <Base>
   <!-- HERO: the record is the thesis -->
@@ -25,6 +27,9 @@ import { hideaway } from '../data/hideaway';
       </div>
     </div>
   </section>
+
+  <!-- Foto van H&H -->
+  <Image src={showFoto} alt="Fingerpoppin Time" />
 
   <!-- Latest on the air -->
   <section class="rule-top">
