@@ -29,7 +29,11 @@ import showFoto from '../assets/fingerpoppintime.png';
   </section>
 
   <!-- Foto van H&H -->
-  <Image src={showFoto} alt="Fingerpoppin Time" />
+  <section class="rule-top">
+    <div class="wrap show-photo-wrap">
+      <Image src={showFoto} alt="Fingerpoppin Time" class="show-photo" />
+    </div>
+  </section>
 
   <!-- Latest on the air -->
   <section class="rule-top">
@@ -74,6 +78,14 @@ import showFoto from '../assets/fingerpoppintime.png';
     border: 1px solid var(--rule);
   }
   .cta-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.8rem; }
+  .show-photo-wrap { display: flex; justify-content: center; }
+  .show-photo {
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+  }
   .mix { max-width: 640px; margin-top: 1.5rem; }
   .hideaway-mention { max-width: 640px; }
 </style>
