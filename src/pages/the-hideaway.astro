@@ -30,6 +30,16 @@ import { hideaway } from '../data/hideaway';
       </p>
     </div>
   </section>
+
+  <section class="rule-top">
+    <div class="wrap">
+      <p class="eyebrow">The flyer</p>
+      <div class="flyer-grid">
+        <img src="/images/flyer-hideaway-2026-2027-front.jpg" alt="The Hideaway flyer — front" />
+        <img src="/images/flyer-hideaway-2026-2027-back.jpg" alt="The Hideaway flyer — back, with dates and venue" />
+      </div>
+    </div>
+  </section>
 </Base>
 
 <style>
@@ -52,4 +62,18 @@ import { hideaway } from '../data/hideaway';
   .narrow { max-width: 720px; }
   .note { margin-top: 1.8rem; }
   .muted { color: var(--cream-dim); }
+  .flyer-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    max-width: 760px;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 620px) { .flyer-grid { grid-template-columns: 1fr 1fr; } }
+  .flyer-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+  }
 </style>
