@@ -13,4 +13,4 @@ The performance will be available to view free via a Live Stream on YouTube.
 
 Mr. Kirkland and his family would appreciate the support of all lovers of his music to tune into the live stream and spread the word to fellow soul music lovers please. 
 
-Location: Skyland Ale Works, 1869 Pomona Rd, Unit F/F, Corona, California which is in East LA
+Location: Skyland Ale Works, 1869 Pomona Rd, Unit F/F, Corona, California which is in East LA.
