@@ -18,7 +18,7 @@ steppers, Philly, 80s grooves and Lovers Rock. Doors 20:00, on until 01:00.
 
 - Saturday 3 October 2026, special guest Ishmael Ibrahim
 - Saturday 21 November 2026
-- Saturday 23 January 2027, special guests from Belgiun  Raphael van Weyenbergh and Kris van Beethoven
+- Saturday 23 January 2027, special guests from Belgium  Raphael van Weyenbergh and Kris van Beethoven
 - Saturday 20 March 2027
 - Saturday 22 May 2027
 - Saturday 19 June 2027
