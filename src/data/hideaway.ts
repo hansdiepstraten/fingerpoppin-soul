@@ -17,7 +17,7 @@ export const hideaway = {
   residents: ['Hans Diepstraten', 'Harry van Vliet', 'Mark Fisher', 'Paul Woosnam'],
   dates: [
     { date: '2026-10-03', guest: 'Ishmael Ibrahim' },
-    { date: '2026-11-21', guest: '' },
+    { date: '2026-11-21', guest: 'Simon Kamstra (Outlaws Yacht Club, Leeds)' },
     { date: '2027-01-23', guest: 'Raphael van Weyenbergh and Kris van Beethoven (Belgium)' },
     { date: '2027-03-20', guest: '' },
     { date: '2027-05-22', guest: '' },
