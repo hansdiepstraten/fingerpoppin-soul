@@ -5,16 +5,17 @@ const fmt = (iso: string) =>
     weekday: 'short', day: 'numeric', month: 'short', year: 'numeric',
   });
 const today = new Date().toISOString().slice(0, 10);
-const upcoming = hideaway.dates.filter((d) => d.date >= today);
-const list = upcoming.length ? upcoming : hideaway.dates;
+const list = hideaway.dates.map((d) => ({ ...d, past: d.date < today }));
 ---
 <ul class="dates">
   {list.map((d) => (
-    <li>
+    <li class={d.past ? 'past' : undefined}>
       <span class="date">{fmt(d.date)}</span>
-      {d.guest
-        ? <span class="guest">Guest: {d.guest}</span>
-        : <span class="guest muted">Guest DJ TBA</span>}
+      {d.past
+        ? <span class="guest muted">{d.guest ? `Guest: ${d.guest} · ` : ''}Past</span>
+        : d.guest
+          ? <span class="guest">Guest: {d.guest}</span>
+          : <span class="guest muted">Guest DJ TBA</span>}
     </li>
   ))}
 </ul>
@@ -32,4 +33,5 @@ const list = upcoming.length ? upcoming : hideaway.dates;
   .date { font-family: var(--font-display); font-size: 1.15rem; color: var(--cream); }
   .guest { font-size: 0.9rem; color: var(--gold); }
   .guest.muted { color: var(--cream-dim); }
+  .dates li.past .date { color: var(--cream-dim); }
 </style>
